@@ -7,14 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.codewave.gymmanagement.appdata.Screens
-import com.codewave.gymmanagement.screensui.Login
+import com.codewave.gymmanagement.graphs.RootNavigationGraph
 import com.codewave.gymmanagement.ui.theme.GymManagementTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,14 +22,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginMain()
+                    RootNavigationGraph(navController = rememberNavController())
                 }
             }
         }
     }
 }
 
-@Composable
+/*@Composable
 fun LoginMain() {
     val navController = rememberNavController()
     NavHost(
@@ -45,10 +40,4 @@ fun LoginMain() {
             composable(Screens.MainScreen.name) { MainScreen() }
         }
     )
-}
-
-@Preview
-@Composable
-fun MyScreenPreview() {
-    LoginMain()
-}
+}*/

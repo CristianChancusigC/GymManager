@@ -1,6 +1,7 @@
 package com.codewave.gymmanagement.screensui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,12 +28,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.composable
-import androidx.navigation.navigation
+import com.codewave.gymmanagement.appdata.DetailsScreen
 import com.codewave.gymmanagement.appdata.MemberInfo
-import com.codewave.gymmanagement.appdata.Screens
 import com.codewave.gymmanagement.appdata.getAllMember
 
 @Composable
@@ -73,8 +71,8 @@ fun MemberItem(navController: NavHostController, item: MemberInfo) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clickable { navController.navigate(DetailsScreen.InfoMembers.route) }
         //.clickable (onClick = {show=true})
-        //.clickable { navController.navigate(Screens.AboutMemberScreen.name) }
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -112,16 +110,5 @@ fun DialogInfo(
             title = { Text(text = "Welcome") },
             text = { Text(text = "You are A member ") }
         )
-    }
-}
-
-fun NavGraphBuilder.detailsNavGraph(navHostController: NavHostController) {
-    navigation(
-        startDestination = Screens.RegisterScreen.name,
-        route = Screens.AboutMemberScreen.name
-    ) {
-        composable(Screens.AboutMemberScreen.name) {
-            AboutMember(navController = navHostController)
-        }
     }
 }

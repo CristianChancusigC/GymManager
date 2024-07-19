@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.codewave.gymmanagement.appdata.Screens
+import com.codewave.gymmanagement.appdata.Graph
 
 @Composable
 fun Login(navController: NavController) {
@@ -28,7 +28,7 @@ fun Login(navController: NavController) {
             Text(text = "Welcome", fontSize = 30.sp)
             HorizontalDivider(thickness = 2.dp)
             Button(onClick = {
-                navController.navigate(Screens.MainScreen.name)
+                navController.navigate(Graph.HOME)
             }) {
                 Text(text = "Login")
             }

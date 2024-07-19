@@ -5,7 +5,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.codewave.gymmanagement.appdata.Screens
+import com.codewave.gymmanagement.appdata.HomeScreen
 
 data class NavItem(
     val label: String,
@@ -19,22 +19,22 @@ val listOfNavItem: List<NavItem>
         NavItem(
             label = "Register",
             icon = GetIconNav(icon = R.drawable.baseline_app_registration_24),
-            route = Screens.RegisterScreen.name
+            route = HomeScreen.Register.route
         ),
         NavItem(
             label = "Members",
             icon = Icons.Default.Person,
-            route = Screens.MembersScreens.name
+            route = HomeScreen.Members.route
         ),
         NavItem(
             label = "History",
             icon = GetIconNav(icon = R.drawable.baseline_history_24),
-            route = Screens.HistoryScreens.name
+            route = HomeScreen.History.route
         ),
         NavItem(
             label = "Analytic",
             icon = GetIconNav(icon = R.drawable.baseline_analytics_24),
-            route = Screens.AnalyticsScreens.name
+            route = HomeScreen.Analytics.route
         )
     )
 
