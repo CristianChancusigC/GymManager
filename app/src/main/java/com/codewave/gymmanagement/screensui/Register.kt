@@ -45,34 +45,30 @@ fun Register(navController: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = "Register")
-            Button(onClick = { show.value=true}) {
-
-            }
-            ListMembers(navController)
+            ListMembers(navController,show)
         }
     }
-    DialogInfo(show,{ show.value = false })
+    DialogInfo(show) { show.value = false }
 }
 
 @Composable
-fun ListMembers(navController: NavHostController) {
+fun ListMembers(navController: NavHostController, show: MutableState<Boolean>) {
     var myMembers = getAllMember()
     LazyColumn(content = {
         itemsIndexed(myMembers, itemContent = { _, item ->
-            MemberItem(navController, item)
+            MemberItem(navController, item, show)
         })
     })
 }
 
 @Composable
-fun MemberItem(navController: NavHostController, item: MemberInfo) {
+fun MemberItem(navController: NavHostController, item: MemberInfo, show: MutableState<Boolean>) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable { navController.navigate(DetailsScreen.InfoMembers.route) }
-        //.clickable (onClick = {show=true})
+            .clickable (onClick = {show.value=true})
     ) {
         Box(
             contentAlignment = Alignment.Center,

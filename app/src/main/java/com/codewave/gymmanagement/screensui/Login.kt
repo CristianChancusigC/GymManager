@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -26,7 +28,10 @@ fun Login(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
             Text(text = "Welcome", fontSize = 30.sp)
-            HorizontalDivider(thickness = 2.dp)
+            HorizontalDivider(
+                thickness = 2.dp,
+                modifier = Modifier.padding(50.dp)
+            )
             Button(onClick = {
                 navController.navigate(Graph.HOME)
             }) {

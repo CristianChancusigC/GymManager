@@ -21,13 +21,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.codewave.gymmanagement.appdata.DetailsScreen
+import com.codewave.gymmanagement.appdata.EditScreen
 import com.codewave.gymmanagement.appdata.Graph
 import com.codewave.gymmanagement.appdata.HomeScreen
 import com.codewave.gymmanagement.screensui.AboutMember
+import com.codewave.gymmanagement.screensui.AddMember
 import com.codewave.gymmanagement.screensui.Analytics
 import com.codewave.gymmanagement.screensui.History
 import com.codewave.gymmanagement.screensui.Members
 import com.codewave.gymmanagement.screensui.Register
+import com.codewave.gymmanagement.screensui.editNavGraph
 
 @Composable
 fun MainScreen(navHostController: NavHostController= rememberNavController()) {
@@ -43,9 +46,10 @@ fun MainScreen(navHostController: NavHostController= rememberNavController()) {
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(HomeScreen.Register.route) { Register(navController) }
-            composable(HomeScreen.Members.route) { Members() }
+            composable(HomeScreen.Members.route) { Members(navController) }
             composable(HomeScreen.History.route) { History() }
             composable(HomeScreen.Analytics.route) { Analytics() }
+            composable(EditScreen.AddMembers.route){ AddMember(navController)}
             detailNavGraph(navController)
         }
     }
@@ -93,6 +97,7 @@ fun NavGraphBuilder.detailNavGraph(navController: NavHostController){
         composable(route = DetailsScreen.InfoMembers.route){
             AboutMember(navController = navController)
         }
+        editNavGraph(navController)
     }
 }
 

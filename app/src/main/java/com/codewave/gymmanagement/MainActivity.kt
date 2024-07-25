@@ -28,16 +28,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-/*@Composable
-fun LoginMain() {
-    val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = Screens.LoginScreen.name,
-        builder = {
-            composable(Screens.LoginScreen.name) { Login(navController) }
-            composable(Screens.MainScreen.name) { MainScreen() }
-        }
-    )
-}*/

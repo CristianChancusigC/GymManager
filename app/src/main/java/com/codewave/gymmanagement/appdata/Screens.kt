@@ -5,6 +5,7 @@ object Graph{
     const val AUTHENTICATION = "auth_graph"
     const val HOME = "home_graph"
     const val DETAILS = "Details_graph"
+    const val EDIT = "Edit_graph"
 }
 
 sealed class AuthScreen(val route: String){
@@ -20,4 +21,9 @@ sealed class HomeScreen(val route: String){
 
 sealed class DetailsScreen(val route: String){
     data object InfoMembers:DetailsScreen(route = "about")
+}
+
+sealed class EditScreen(val route: String){
+    data object EditMembers:DetailsScreen(route = "edit")
+    data object AddMembers:DetailsScreen(route = "add")
 }
